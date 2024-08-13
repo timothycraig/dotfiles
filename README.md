@@ -20,3 +20,18 @@ brew leaves > leaves.txt
 # Fresh installation
 xargs brew install < leaves.txt
 ```
+
+### Other programs to install
+
+- Bruno
+- Chrome
+- DBeaver
+- Discord
+- Docker
+- Homebrew
+- Magnet
+- Slack
+- Spotify
+- VSCode
+- Wezterm
+- nvm

@@ -5,6 +5,7 @@ bat
 brew-cask-completion
 chruby
 cmake
+eza
 fzf
 gh
 git
