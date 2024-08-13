@@ -1,8 +1,3 @@
-# zsh_history configuration
-export HISTSIZE=1000000000
-export SAVEHIST=$HISTSIZE
-setopt EXTENDED_HISTORY
-
 # Locale settings
 export LANG="en_US.UTF-8" # Sets default locale for all categories
 export LC_ALL="en_US.UTF-8" # Overrides all other locale settings
