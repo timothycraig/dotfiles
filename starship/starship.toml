@@ -1,0 +1,18 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+add_newline = false
+
+[git_branch]
+style = 'fg:red'
+symbol = ' '
+format =  '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_status]
+style = 'fg:yellow'
+
+[docker_context]
+disabled = true
