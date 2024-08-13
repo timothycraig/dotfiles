@@ -30,3 +30,6 @@ alias gitbranchclean='git fetch --prune && git branch -r | awk "{print \$1}" | e
 # Eza
 alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
+
+# Dirs
+alias ..="cd .."

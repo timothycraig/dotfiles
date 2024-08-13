@@ -1,4 +1,6 @@
-# zsh Options
+# Case-insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+autoload -Uz compinit && compinit
 
 ## History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
