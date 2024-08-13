@@ -3,7 +3,7 @@
 ### Install with stow:
 
 ```bash
-stow --target .
+./setup.sh
 ```
 
 ### Homebrew installation:
