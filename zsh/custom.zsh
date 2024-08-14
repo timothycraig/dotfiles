@@ -3,6 +3,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Bun completions
+[ -s "/Users/ttcraig/.bun/_bun" ] && source "/Users/ttcraig/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -32,12 +39,13 @@ if [ -f '/Users/ttcraig/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ttcraig
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ttcraig/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ttcraig/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Bun completions
-[ -s "/Users/ttcraig/.bun/_bun" ] && source "/Users/ttcraig/.bun/_bun"
-
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Tmux
+# Always work in a tmux session if Tmux is installed
+if which tmux 2>&1 >/dev/null; then
+  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+    tmux attach -t default || tmux new -s default; exit
+  fi
+fi
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"

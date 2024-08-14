@@ -15,6 +15,10 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
 
+# Reverse search
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 # Custom zsh
 [ -f "$HOME/.config/zsh/custom.zsh" ] && source "$HOME/.config/zsh/custom.zsh"
 
