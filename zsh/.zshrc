@@ -1,5 +1,5 @@
 # Case-insensitive matching
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit && compinit
 
 ## History file configuration
