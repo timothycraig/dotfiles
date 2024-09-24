@@ -1,6 +1,19 @@
-# Case-insensitive matching
-zstyle ':completion:*' menu select matcher-list 'm:{a-z}={A-Za-z}'
-autoload -Uz compinit && compinit
+# Case-insensitive matching & menu select
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
+setopt globdots
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:*:*:*' menu select
+
+# Complete . and .. special directories
+zstyle ':completion:*' special-dirs true
+
+# Automatically load bash completion functions
+autoload -U +X bashcompinit && bashcompinit
 
 ## History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
