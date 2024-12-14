@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
 	-- font = wezterm.font("JetBrains Mono", { weight = "Light" }),
-	font_size = 18,
+	font_size = 16,
 
 	enable_tab_bar = false,
 
