@@ -28,10 +28,12 @@ xargs brew install < leaves.txt
 - DBeaver
 - Discord
 - Docker
+- Ghostty
 - Homebrew
 - Magnet
 - Slack
 - Spotify
 - VSCode
 - Wezterm
+- Zoom
 - nvm

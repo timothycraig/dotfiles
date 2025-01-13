@@ -1,3 +1,4 @@
 theme = tokyonight
+font-family = "GeistMono Nerd Font"
 font-size = 16
-font-feature = -calt
+font-feature = -liga
