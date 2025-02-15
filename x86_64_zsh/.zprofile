@@ -8,5 +8,9 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 set -o vi
 
+# Add /usr/local/bin to the beginning of the PATH environment variable.
+# This ensures that executables in /usr/local/bin are found before other directories in the PATH.
+export PATH="/usr/local/bin:$PATH"
+
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/usr/local/sbin:$PATH"
