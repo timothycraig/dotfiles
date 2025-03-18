@@ -9,8 +9,10 @@ eza
 fzf
 gh
 git
+git-delta
 gnupg
 htop
+jesseduffield/lazygit/lazygit
 jq
 macos-trash
 neovim

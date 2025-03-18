@@ -1,4 +1,6 @@
 --target=~/.config
---ignore=.stowrc
---ignore=DS_Store
+--ignore=homebrew
+--ignore=x86_64_zsh
 --ignore=setup.sh
+--ignore='\.stowrc'
+--ignore='\.DS_Store'

@@ -6,6 +6,7 @@ export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conve
 # Set neovim as default editor and enable vim motions in the command prompt
 export EDITOR="nvim"
 export VISUAL="nvim"
+export GIT_EDITOR="nvim"
 set -o vi
 
 # Homebrew

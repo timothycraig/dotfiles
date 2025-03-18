@@ -38,3 +38,9 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 # Activate autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^y' autosuggest-execute
+
+# Lazygit
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
+
+# Bat
+export BAT_THEME="Visual Studio Dark+"
