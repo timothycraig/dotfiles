@@ -17,11 +17,11 @@ chruby ruby-3.4.1
 
 # Tmux
 # Always work in a tmux session if Tmux is installed
-if which tmux 2>&1 >/dev/null; then
-  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-    tmux attach -t default || tmux new -s default; exit
-  fi
-fi
+# if which tmux 2>&1 >/dev/null; then
+#   if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
+#     tmux attach -t default || tmux new -s default; exit
+#   fi
+# fi
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
