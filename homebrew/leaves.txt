@@ -11,6 +11,7 @@ gh
 git
 git-delta
 gnupg
+go
 htop
 jesseduffield/lazygit/lazygit
 jq

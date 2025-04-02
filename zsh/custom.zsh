@@ -15,6 +15,10 @@ source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
 source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.4.1
 
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # Tmux
 # Always work in a tmux session if Tmux is installed
 # if which tmux 2>&1 >/dev/null; then
