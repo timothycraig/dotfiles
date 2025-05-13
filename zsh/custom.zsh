@@ -48,3 +48,7 @@ export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
 # Bat
 export BAT_THEME="Visual Studio Dark+"
+
+# Neovim
+export PATH="$HOME/nvim-macos-arm64/bin:$PATH"
+
