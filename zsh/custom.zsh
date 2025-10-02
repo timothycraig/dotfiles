@@ -27,6 +27,11 @@ export PATH=$PATH:$GOPATH/bin
 #   fi
 # fi
 
+# Java
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
+export JAVA_HOME="/usr/local/opt/openjdk@21"
+
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"

@@ -4,3 +4,4 @@ font-family = "JetbrainsMono Nerd Font"
 font-family = "GeistMono Nerd Font"
 font-size = 14
 font-feature = -calt
+adjust-cell-height = 10%
