@@ -26,6 +26,7 @@ alias mtests="docker compose run --rm express npm run test:server"
 
 # Git
 alias gitbranchclean='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -D'
+alias lg="lazygit"
 
 # Eza
 alias l="eza -l --icons --git -a"

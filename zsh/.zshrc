@@ -21,16 +21,54 @@ autoload -U +X bashcompinit && bashcompinit
 [ "$SAVEHIST" -lt 1000000 ] && SAVEHIST=1000000
 
 ## History command configuration
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-setopt share_history          # share command history data
+setopt EXTENDED_HISTORY       # record timestamp of command in HISTFILE
+setopt HIST_EXPIRE_DUPS_FIRST # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_IGNORE_DUPS       # ignore duplicated commands history list
+setopt HIST_IGNORE_ALL_DUPS   # older command is removed from the list
+setopt HIST_IGNORE_SPACE      # ignore commands that start with space
+setopt HIST_VERIFY            # show command with history expansion to user before running it
+setopt SHARE_HISTORY          # share command history data
 
 # Reverse search
-bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+# Enable vi keybindings
+bindkey -v
+export KEYTIMEOUT=1 # Makes switching modes quicker
+export VI_MODE_SET_CURSOR=true # trigger cursor shape changes when switching modes
+
+# Gets called every time the keymap changes (insert <-> normal mode)
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]]; then
+    echo -ne '\e[2 q' # block
+  else
+    echo -ne '\e[6 q' # beam
+  fi
+}
+# Register this function as a ZLE (Zsh Line Editor) widget
+zle -N zle-keymap-select
+
+# Runs once when a new ZLE session starts (e.g. when a prompt appears)
+zle-line-init() {
+  zle -K viins # initiate 'vi insert' as keymap (can be removed if 'binkey -V has been set elsewhere')
+  echo -ne '\e[6 q'
+}
+zle -N zle-line-init
+echo -ne '\e[6 q' # Use beam shape cursor on startup
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+  zle vi-yank
+  echo "$CUTBUFFER" | pbcopy -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+# Press 'v' in normal mode to launch Vim with current line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Custom zsh
 [ -f "$HOME/.config/zsh/custom.zsh" ] && source "$HOME/.config/zsh/custom.zsh"
