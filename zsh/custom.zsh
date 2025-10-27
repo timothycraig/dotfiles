@@ -32,9 +32,8 @@ export PATH=$PATH:$GOPATH/bin
 # fi
 
 # Java
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
-export JAVA_HOME="/usr/local/opt/openjdk@21"
+export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
