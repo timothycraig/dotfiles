@@ -3,9 +3,11 @@ bash
 bash-completion
 bat
 brew-cask-completion
+carapace
 chruby
 cmake
 eza
+figlet
 fzf
 gh
 git
@@ -13,10 +15,11 @@ git-delta
 gnupg
 go
 htop
-jesseduffield/lazygit/lazygit
 jq
+lazygit
 macos-trash
 neovim
+openjdk@21
 pass
 ripgrep
 ruby-install

@@ -1,6 +1,5 @@
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Nvm
 export NVM_DIR="$HOME/.nvm"
@@ -50,6 +49,10 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 # Activate autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^y' autosuggest-execute
+
+# Carapace
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # Lazygit
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
