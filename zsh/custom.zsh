@@ -34,6 +34,9 @@ export PATH=$PATH:$GOPATH/bin
 export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
