@@ -1,5 +1,9 @@
 {
+  "cleanupPeriodDays": 99999,
   "permissions": {
+    "allow": [
+      "Bash(git commit:*)"
+    ],
     "deny": [
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)",
@@ -57,7 +61,7 @@
   },
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": false,
+    "excludedCommands": ["git push", "git commit", "docker"],
     "network": {
       "allowedDomains": [
         "github.com",
@@ -66,13 +70,20 @@
         "api.anthropic.com"
       ]
     },
-    "filesystem": {
-      "denyRead": [
-        "~/.ssh/**",
-        "~/.aws/**",
-        "~/.gnupg/**",
-        "**/.env",
-        "**/.env.*"
+    "credentials": {
+      "files": [
+        { "path": "~/.aws/credentials", "mode": "deny" },
+        { "path": "~/.ssh", "mode": "deny" },
+        { "path": "~/.gnupg", "mode": "deny" },
+        { "path": "~/.config/gcloud", "mode": "deny" },
+        { "path": "~/.kube", "mode": "deny" }
+      ],
+      "envVars": [
+        { "name": "GITHUB_TOKEN", "mode": "deny" },
+        { "name": "NPM_TOKEN", "mode": "deny" },
+        { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
+        { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
+        { "name": "AWS_SESSION_TOKEN", "mode": "deny" }
       ]
     }
   },
@@ -82,3 +93,4 @@
   "skipWorkflowUsageWarning": true,
   "theme": "dark"
 }
+
