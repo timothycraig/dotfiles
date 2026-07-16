@@ -41,5 +41,17 @@ alias getpubip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | tee 
 
 # Lorem ipsum generator
 lorem() {
-    curl -s http://metaphorpsum.com/sentences/${1-3} | pbcopy;
+    local n=${1:-3}
+    local words=(lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum)
+    local nw=${#words[@]}
+    local out=""
+    for ((s=0; s<n; s++)); do
+        local len=$((RANDOM % 8 + 8)) sentence=""
+        for ((w=0; w<len; w++)); do
+            sentence+="${words[RANDOM % nw + 1]} "
+        done
+        sentence="${sentence% }"
+        out+="${(C)sentence[1]}${sentence[2,-1]}. "
+    done
+    printf '%s\n' "${out% }" | pbcopy
 }
