@@ -1,6 +1,7 @@
 {
   "cleanupPeriodDays": 99999,
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "Bash(git commit:*)"
     ],
