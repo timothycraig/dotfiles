@@ -23,6 +23,17 @@ zoom = "prefix+m"
 goto = "prefix+s"
 settings = "prefix+g"
 
+# Detach on d as in tmux (herdr defaults to prefix+q, which is display-panes
+# in tmux). Note close_workspace is prefix+shift+d, one slipped Shift away —
+# don't set ui.confirm_close = false without rethinking this.
+detach = "prefix+d"
+
+# lazygit in a temporary pane that closes when lazygit exits
+[[keys.command]]
+key = "prefix+shift+l"
+type = "pane"
+command = "lazygit"
+
 [advanced]
 # tmux keeps 1,000,000 lines of history; raise herdr's 10MB default to match intent
 scrollback_limit_bytes = 50000000
