@@ -1,10 +1,49 @@
 {
   "cleanupPeriodDays": 99999,
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "caveman@caveman": false,
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "repo": "JuliusBrussee/caveman",
+        "source": "github"
+      }
+    },
+    "context7-marketplace": {
+      "source": {
+        "repo": "upstash/context7",
+        "source": "github"
+      }
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/ttcraig/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus[1m]",
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(git commit:*)"
     ],
+    "defaultMode": "auto",
     "deny": [
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)",
@@ -32,37 +71,59 @@
       "Bash(rm -rf ~*)"
     ]
   },
-  "model": "opus[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "caveman@caveman": false,
-    "playwright@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "context7-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "upstash/context7"
-      }
-    },
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    }
-  },
   "sandbox": {
+    "credentials": {
+      "envVars": [
+        {
+          "mode": "deny",
+          "name": "GITHUB_TOKEN"
+        },
+        {
+          "mode": "deny",
+          "name": "NPM_TOKEN"
+        },
+        {
+          "mode": "deny",
+          "name": "AWS_ACCESS_KEY_ID"
+        },
+        {
+          "mode": "deny",
+          "name": "AWS_SECRET_ACCESS_KEY"
+        },
+        {
+          "mode": "deny",
+          "name": "AWS_SESSION_TOKEN"
+        }
+      ],
+      "files": [
+        {
+          "mode": "deny",
+          "path": "~/.aws/credentials"
+        },
+        {
+          "mode": "deny",
+          "path": "~/.ssh"
+        },
+        {
+          "mode": "deny",
+          "path": "~/.gnupg"
+        },
+        {
+          "mode": "deny",
+          "path": "~/.config/gcloud"
+        },
+        {
+          "mode": "deny",
+          "path": "~/.kube"
+        }
+      ]
+    },
     "enabled": true,
-    "excludedCommands": ["git push", "git commit", "docker"],
+    "excludedCommands": [
+      "git push",
+      "git commit",
+      "docker"
+    ],
     "network": {
       "allowedDomains": [
         "github.com",
@@ -70,28 +131,14 @@
         "pypi.org",
         "api.anthropic.com"
       ]
-    },
-    "credentials": {
-      "files": [
-        { "path": "~/.aws/credentials", "mode": "deny" },
-        { "path": "~/.ssh", "mode": "deny" },
-        { "path": "~/.gnupg", "mode": "deny" },
-        { "path": "~/.config/gcloud", "mode": "deny" },
-        { "path": "~/.kube", "mode": "deny" }
-      ],
-      "envVars": [
-        { "name": "GITHUB_TOKEN", "mode": "deny" },
-        { "name": "NPM_TOKEN", "mode": "deny" },
-        { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
-        { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
-        { "name": "AWS_SESSION_TOKEN", "mode": "deny" }
-      ]
     }
   },
-  "syntaxHighlightingDisabled": false,
-  "effortLevel": "high",
-  "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "dark"
+  "statusLine": {
+    "command": "bash ~/.claude/statusline-command.sh",
+    "type": "command"
+  },
+  "syntaxHighlightingDisabled": false,
+  "theme": "dark",
+  "tui": "fullscreen"
 }
-

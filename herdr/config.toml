@@ -19,6 +19,10 @@ split_horizontal = "prefix+minus"
 # Maximize/zoom the focused pane with m (tmux: bind -r m resize-pane -Z)
 zoom = "prefix+m"
 
+# Swapped from herdr's defaults: navigate mode on s, settings on g
+goto = "prefix+s"
+settings = "prefix+g"
+
 [advanced]
 # tmux keeps 1,000,000 lines of history; raise herdr's 10MB default to match intent
 scrollback_limit_bytes = 50000000

@@ -12,7 +12,19 @@ zstyle ':completion:*:*:*:*:*' menu select
 # Complete . and .. special directories
 zstyle ':completion:*' special-dirs true
 
-# Automatically load bash completion functions
+# Initialize the completion system. Bun's completion file does this implicitly
+# and unguarded if we don't; -C reuses the dump unless it's over a day old,
+# which skips the security audit.
+autoload -Uz compinit
+_zdump_fresh=(~/.zcompdump(Nmh-24))
+if (( $#_zdump_fresh )); then
+  compinit -C
+else
+  compinit
+fi
+unset _zdump_fresh
+
+# Automatically load bash completion functions (needs compinit above first)
 autoload -U +X bashcompinit && bashcompinit
 
 ## History file configuration
@@ -28,9 +40,6 @@ setopt HIST_IGNORE_ALL_DUPS   # older command is removed from the list
 setopt HIST_IGNORE_SPACE      # ignore commands that start with space
 setopt HIST_VERIFY            # show command with history expansion to user before running it
 setopt SHARE_HISTORY          # share command history data
-
-# Reverse search
-bindkey '^R' history-incremental-search-backward
 
 # Enable vi keybindings
 bindkey -v

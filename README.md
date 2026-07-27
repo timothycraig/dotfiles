@@ -2,14 +2,18 @@
 
 ### Install with stow:
 
+`setup.sh` stows everything into `~/.config` and links the Claude Code config
+into `~/.claude`. Zsh needs two links in `$HOME` that stow can't make itself:
+
 ```bash
 ./setup.sh
 
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/.zshenv ~/.zshenv
-ln -s ~/dotfiles/zsh/aliases.zsh ~/aliases.zsh
-ln -s ~/dotfiles/zsh/custom.zsh ~/custom.zsh
 ```
+
+(`aliases.zsh` and `custom.zsh` need no links — `.zshrc` sources them from
+`~/.config/zsh/`, which stow provides.)
 
 ### Homebrew installation:
 
