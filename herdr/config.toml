@@ -1,0 +1,28 @@
+onboarding = false
+# herdr configuration — mirrors ~/.config/tmux/tmux.conf where herdr has an equivalent.
+# Full reference: herdr --default-config
+
+[terminal]
+default_shell = "/bin/zsh"
+
+# New panes/tabs/workspaces open in the source pane's cwd,
+# like `split-window -c "#{pane_current_path}"`
+new_cwd = "follow"
+
+[keys]
+prefix = "ctrl+a"
+
+# Split right with \ and down with -, as in tmux
+split_vertical = "prefix+backslash"
+split_horizontal = "prefix+minus"
+
+# Maximize/zoom the focused pane with m (tmux: bind -r m resize-pane -Z)
+zoom = "prefix+m"
+
+[advanced]
+# tmux keeps 1,000,000 lines of history; raise herdr's 10MB default to match intent
+scrollback_limit_bytes = 50000000
+
+[theme]
+name = "catppuccin"
+auto_switch = false

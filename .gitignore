@@ -1,2 +1,6 @@
 .DS_Store
 tmux/plugins/
+
+# herdr writes logs, sockets, and session state into the stow package
+herdr/*
+!herdr/config.toml

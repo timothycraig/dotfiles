@@ -60,7 +60,7 @@ source <(carapace _carapace)
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
 # Bat
-export BAT_THEME="Visual Studio Dark+"
+# export BAT_THEME="Visual Studio Dark+"
 
 # Neovim
 export PATH="$HOME/nvim-macos-arm64/bin:$PATH"
@@ -73,3 +73,9 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/op
 
 # Claude code
 export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# Herdr
+source <(herdr completion zsh)
