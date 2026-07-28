@@ -34,6 +34,12 @@ key = "prefix+shift+l"
 type = "pane"
 command = "lazygit"
 
+[ui]
+# tmux never asks for a window name on creation, and the aarsh21.tab-title plugin
+# only manages tabs still carrying herdr's generated numeric label — a name typed
+# at the prompt counts as a manual rename and is left alone forever.
+prompt_new_tab_name = false
+
 [advanced]
 # tmux keeps 1,000,000 lines of history; raise herdr's 10MB default to match intent
 scrollback_limit_bytes = 50000000

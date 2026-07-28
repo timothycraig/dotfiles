@@ -25,6 +25,18 @@ brew leaves > leaves.txt
 xargs brew install < leaves.txt
 ```
 
+### herdr plugins:
+
+herdr records installed plugins in `herdr/plugins.json` using absolute paths, so
+it's gitignored along with the rest of the package and a fresh machine has to
+reinstall. Launch herdr first — the CLI only talks to a running server:
+
+```bash
+# tmux-style tab titles, driven by the focused pane's process or directory
+herdr plugin install aarsh21/herdr-tab-title
+herdr plugin action invoke aarsh21.tab-title.start
+```
+
 ### Other programs to install
 
 - Bruno
