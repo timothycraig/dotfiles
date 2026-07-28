@@ -23,6 +23,19 @@ zoom = "prefix+m"
 goto = "prefix+s"
 settings = "prefix+g"
 
+# prefix+w (workspace_picker) opens NAVIGATE mode. herdr defaults workspace
+# movement to the arrows and gives j/k to pane movement; take j/k for the
+# workspace list instead, like tmux's choose-tree.
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+
+# Explicitly unset rather than deleted: these default to j/k, which would now
+# collide with the workspace bindings above. Nothing is lost — navigate-mode pane
+# movement only duplicated prefix+j/prefix+k in more keystrokes, and a pane move
+# exits the mode anyway. h/l still move panes left/right in here.
+navigate_pane_up = ""
+navigate_pane_down = ""
+
 # Detach on d as in tmux (herdr defaults to prefix+q, which is display-panes
 # in tmux). Note close_workspace is prefix+shift+d, one slipped Shift away —
 # don't set ui.confirm_close = false without rethinking this.
