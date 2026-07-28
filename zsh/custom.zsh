@@ -1,3 +1,7 @@
+# Keep PATH deduplicated: the prepends below run again in every nested shell
+# (tmux panes, subshells) and would otherwise stack up duplicate entries.
+typeset -U path PATH
+
 # Homebrew — everything below depends on $HOMEBREW_PREFIX from this
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 

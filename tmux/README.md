@@ -5,7 +5,7 @@
 Once everything has been installed it's time to run TPM, install first:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
 ## Run

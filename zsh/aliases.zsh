@@ -14,7 +14,10 @@ alias mtest="docker compose run --rm client npm run test:unit:watch"
 alias mtests="docker compose run --rm express npm run test:server"
 
 # Git
-alias gitbranchclean='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -D'
+# Force-delete local branches whose upstream is gone. The `grep -v "^\*"` skips
+# the checked-out branch: `git branch -vv` prefixes it with `* `, which would
+# otherwise reach `git branch -D` as a literal `*`.
+alias gitbranchclean='git fetch --prune && git branch -vv | grep ": gone]" | grep -v "^\*" | awk "{print \$1}" | xargs -r git branch -D'
 alias lg="lazygit"
 
 # Eza
