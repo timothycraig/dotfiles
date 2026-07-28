@@ -1,0 +1,62 @@
+# tuicr's bundled `github-dark` matches GitHub's UI chrome but highlights code
+# with OneHalfDark. This clones that palette verbatim from Theme::github_dark()
+# (tuicr v0.19.1) and swaps only the syntax theme, so tuicr, lazygit and delta
+# all render code with the same GitHub Dark Default colors.
+#
+# Cannot be named `github-dark`: bundled theme names win over local files.
+
+panel_bg = "#0d1117"
+bg_highlight = "#21262d"
+fg_primary = "#e6edf3"
+fg_secondary = "#c9d1d9"
+fg_dim = "#8b949e"
+
+diff_add = "#3fb950"
+diff_add_bg = "#10231c"
+diff_del = "#f85149"
+diff_del_bg = "#301b1f"
+diff_context = "#e6edf3"
+diff_hunk_header = "#58a6ff"
+expanded_context_fg = "#8b949e"
+
+syntax_add_bg = "#10231c"
+syntax_del_bg = "#301b1f"
+
+# Shared with bat/delta. Resolves correctly whether tuicr canonicalises the
+# stow symlink or not: ~/.config/tuicr/themes/../../bat -> ~/.config/bat, and
+# dotfiles/tuicr/themes/../../bat -> dotfiles/bat. Run `bat cache --build`
+# after editing the .tmTheme; tuicr reads the file directly, bat reads its cache.
+syntax_theme = "../../bat/themes/GitHub Dark Default.tmTheme"
+
+file_added = "#3fb950"
+file_modified = "#d29922"
+file_deleted = "#f85149"
+file_renamed = "#a371f7"
+
+reviewed = "#3fb950"
+pending = "#d29922"
+
+comment_note = "#58a6ff"
+comment_suggestion = "#56d4dd"
+comment_issue = "#f85149"
+comment_praise = "#3fb950"
+
+border_focused = "#58a6ff"
+border_unfocused = "#30363d"
+status_bar_bg = "#161b22"
+cursor_color = "#d29922"
+cursor_line_bg = "#161b22"
+branch_name = "#58a6ff"
+help_indicator = "#8b949e"
+
+message_info_fg = "#0d1117"
+message_info_bg = "#58a6ff"
+message_warning_fg = "#0d1117"
+message_warning_bg = "#d29922"
+message_error_fg = "white"
+message_error_bg = "#f85149"
+update_badge_fg = "#0d1117"
+update_badge_bg = "#d29922"
+
+mode_fg = "white"
+mode_bg = "#58a6ff"

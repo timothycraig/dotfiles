@@ -1,4 +1,5 @@
-theme = "github-dark"
+# Local theme in themes/: bundled github-dark highlights code with OneHalfDark.
+theme = "github-dark-default"
 diff_view = "side-by-side"
 
 # Matches vi mode in zsh (bindkey -v) and tmux (mode-keys vi).
