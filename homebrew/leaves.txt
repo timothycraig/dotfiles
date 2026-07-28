@@ -1,3 +1,4 @@
+agavra/tap/tuicr
 awscli
 bash
 bash-completion

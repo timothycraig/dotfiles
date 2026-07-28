@@ -1,0 +1,5 @@
+theme = "github-dark"
+diff_view = "side-by-side"
+
+# Matches vi mode in zsh (bindkey -v) and tmux (mode-keys vi).
+comment_vim = true

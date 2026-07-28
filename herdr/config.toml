@@ -34,6 +34,13 @@ key = "prefix+shift+l"
 type = "pane"
 command = "lazygit"
 
+# tuicr on the working tree, same temporary-pane treatment. shift+c because
+# reload_config holds shift+r and rename_tab holds shift+t.
+[[keys.command]]
+key = "prefix+shift+c"
+type = "pane"
+command = "tuicr -w"
+
 [ui]
 # tmux never asks for a window name on creation, and the aarsh21.tab-title plugin
 # only manages tabs still carrying herdr's generated numeric label — a name typed
