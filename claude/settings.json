@@ -107,10 +107,6 @@
         },
         {
           "mode": "deny",
-          "path": "~/.gnupg"
-        },
-        {
-          "mode": "deny",
           "path": "~/.config/gcloud"
         },
         {
@@ -119,15 +115,30 @@
         }
       ]
     },
+    "enableWeakerNetworkIsolation": true,
     "enabled": true,
     "excludedCommands": [
       "git push",
       "git commit",
       "docker"
     ],
+    "filesystem": {
+      "allowRead": [
+        "~/.gnupg"
+      ],
+      "allowWrite": [
+        "~/.gnupg"
+      ]
+    },
     "network": {
+      "allowLocalBinding": true,
+      "allowUnixSockets": [
+        "/Users/ttcraig/.gnupg/S.gpg-agent",
+        "/Users/ttcraig/.gnupg/S.keyboxd"
+      ],
       "allowedDomains": [
         "github.com",
+        "api.github.com",
         "registry.npmjs.org",
         "pypi.org",
         "api.anthropic.com"

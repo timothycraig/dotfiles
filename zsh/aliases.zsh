@@ -9,9 +9,9 @@ alias ddown="docker compose down"
 alias dstp="docker compose stop"
 
 # Mosaic specific
-alias mlint="docker compose run --rm client npm run lint"
-alias mtest="docker compose run --rm client npm run test:unit:watch"
-alias mtests="docker compose run --rm express npm run test:server"
+alias mlint="docker compose exec -T client npm run lint"
+alias mtest="docker compose exec -T client npm run test:unit:watch"
+alias mtests="docker compose exec -T express npm run test"
 
 # Git
 # Force-delete local branches whose upstream is gone. The `grep -v "^\*"` skips
