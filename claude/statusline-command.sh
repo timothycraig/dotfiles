@@ -5,9 +5,21 @@ input=$(cat)
 MODEL=$(echo "$input" | jq -r '.model.display_name')
 # "// empty" produces no output when rate_limits is absent
 FIVE_H=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+FIVE_H_RESET=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 WEEK=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 CTX=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 DUR_MS=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
+
+# countdown to the 5h window reset; empty if the window already elapsed
+RESET_STR=""
+if [ -n "$FIVE_H_RESET" ]; then
+  LEFT=$((${FIVE_H_RESET%%.*} - $(date +%s)))
+  if [ "$LEFT" -ge 3600 ]; then
+    RESET_STR=$(printf '↻ %dh%dm' $((LEFT / 3600)) $(((LEFT % 3600) / 60)))
+  elif [ "$LEFT" -gt 0 ]; then
+    RESET_STR=$(printf '↻ %dm' $(((LEFT + 59) / 60)))
+  fi
+fi
 
 LIMITS=""
 [ -n "$FIVE_H" ] && LIMITS="5h $(printf '%.0f' "$FIVE_H")%"
@@ -33,5 +45,6 @@ OUT="[$MODEL]"
 [ -n "$CTX_STR" ] && OUT="$OUT | $CTX_STR"
 [ -n "$DUR_STR" ] && OUT="$OUT | $DUR_STR"
 [ -n "$LIMITS" ] && OUT="$OUT | $LIMITS"
+[ -n "$RESET_STR" ] && OUT="$OUT | $RESET_STR"
 echo "$OUT"
 
