@@ -41,9 +41,12 @@ navigate_pane_down = ""
 # don't set ui.confirm_close = false without rethinking this.
 detach = "prefix+d"
 
+# new_worktree moved off its prefix+shift+g default, which lazygit now holds below.
+new_worktree = "prefix+shift+e"
+
 # lazygit in a temporary pane that closes when lazygit exits
 [[keys.command]]
-key = "prefix+shift+l"
+key = "prefix+shift+g"
 type = "pane"
 command = "lazygit"
 

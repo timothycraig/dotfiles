@@ -1,7 +1,7 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never --side-by-side --hyperlinks --syntax-theme="GitHub Dark Default"
+      command: delta --dark --paging=never --side-by-side --hyperlinks --syntax-theme="GitHub Dark Default"
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
